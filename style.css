@@ -1,0 +1,162 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: right;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+.logo1{
+  display: flex;
+  height: 0.5px;
+  width: 5%;
+  position:relative;
+  left:auto;
+  top: 2rem;
+  flex-direction: column-reverse;
+}
+
+/* Slideshow */
+.slideshow {
+  width: 100%;
+  max-height: 400px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.slideshow img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Notifications */
+.notifications {
+  padding: 2rem;
+  background-color: #fff;
+  margin: 1rem auto;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.notifications h2 {
+  margin-bottom: 1rem;
+}
+
+.notifications ul {
+  list-style: none;
+}
+
+.notifications li {
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.notifications li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #007bff;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  margin-top: 2rem;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode .navbar {
+  background-color: #1f1f1f;
+  border-bottom: 1px solid #333;
+}
+
+body.dark-mode .nav-links a {
+  color: #e0e0e0;
+}
+
+body.dark-mode .nav-links a:hover {
+  color: #90caf9;
+}
+
+body.dark-mode .notifications {
+  background-color: #1f1f1f;
+  box-shadow: none;
+}
+
+body.dark-mode footer {
+  background-color: #1f1f1f;
+  border-top: 1px solid #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .slideshow {
+    margin: 1rem 0;
+  }
+
+  .notifications {
+    padding: 1rem;
+  }
+}
