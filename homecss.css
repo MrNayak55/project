@@ -275,8 +275,8 @@
   
   .hero-image {
     position: relative;
-    width: 400px;
-    height: 400px;
+    width: 700px;
+    height: 450px;
     margin: auto;
     perspective: 1000px;
   }
@@ -341,7 +341,7 @@
   }
   
   .prev-arrow {
-    left: 5px;
+    left: -50px;
   }
   
   .prev-arrow::before {
@@ -349,7 +349,7 @@
   }
   
   .next-arrow {
-    right: 5px;
+    right: -50px;
   }
   
   .next-arrow::before {
