@@ -66,10 +66,24 @@
                         </div>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <img src="image1.jpg" alt="GITAM Campus" class="hero-img">
-                    <div class="hero-highlight"></div>
+                <div class="hero-image album-container">
+                    <div class="shadow-area"></div>
+                
+                    <img src="image1.jpg" class="album-image" alt="Campus 1" />
+                    <img src="image2.jpg" class="album-image" alt="Campus 2" />
+                    <img src="image3.jpg" class="album-image" alt="Campus 3" />
+                    <img src="image4.jpg" class="album-image" alt="Campus 4" />
+                
+                    <button class="nav-arrow prev-arrow" id="prevBtn"></button>
+                    <button class="nav-arrow next-arrow" id="nextBtn"></button>
                 </div>
+                <!-- <div class="slideshow-container">
+                    <div class="slide active"><img src="https://picsum.photos/id/1018/800/500" alt="Image 1"></div>
+                    <div class="slide"><img src="https://picsum.photos/id/1025/800/500" alt="Image 2"></div>
+                    <div class="slide"><img src="https://picsum.photos/id/1039/800/500" alt="Image 3"></div>
+                  </div> -->
+                
+  
             </div>
         </div>
     </section>
@@ -237,8 +251,8 @@
                     <img src="alumni.jpg" alt="Alumni" class="testimonial-img">
                     <blockquote>"The industry-oriented curriculum and expert faculty at GITAM B-School gave me the perfect launchpad for my career. The placement cell helped me secure my dream job at Deloitte."</blockquote>
                     <div class="testimonial-author">
-                        <h4>Sanjay Patel</h4>
-                        <p>Class of 2022 | Consultant at Deloitte</p>
+                        <h4>Aman Mohanty</h4>
+                        <p>Class of 2024 | Consultant at TCS</p>
                     </div>
                 </div>
             </div>
@@ -323,7 +337,65 @@
             </div>
         </div>
     </footer>
-
+    <script>
+        const images = document.querySelectorAll('.album-image');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+        let autoRotateInterval;
+      
+        function showImage(index) {
+          images.forEach((img, i) => {
+            const distance = Math.abs(i - index);
+            const z = i === index ? 10 : 10 - distance;
+            const scale = 1 - distance * 0.1;
+            const rotate = i === index ? 0 : (i < index ? -5 : 5) * distance;
+            const opacity = i === index ? 1 : i < index ? 0.3 : 0.6;
+      
+            img.style.zIndex = z;
+            img.style.opacity = opacity;
+            img.style.transform = `translate(-50%, -50%) rotate(${rotate}deg) scale(${scale})`;
+          });
+        }
+      
+        function nextImage() {
+          currentIndex = (currentIndex + 1) % images.length;
+          showImage(currentIndex);
+        }
+      
+        function prevImage() {
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+          showImage(currentIndex);
+        }
+      
+        function startAutoRotate() {
+          autoRotateInterval = setInterval(nextImage, 3000);
+        }
+      
+        function stopAutoRotate() {
+          clearInterval(autoRotateInterval);
+        }
+      
+        prevBtn.addEventListener('click', () => {
+          stopAutoRotate();
+          prevImage();
+          startAutoRotate();
+        });
+      
+        nextBtn.addEventListener('click', () => {
+          stopAutoRotate();
+          nextImage();
+          startAutoRotate();
+        });
+      
+        document.querySelector('.hero-image').addEventListener('mouseenter', stopAutoRotate);
+        document.querySelector('.hero-image').addEventListener('mouseleave', startAutoRotate);
+      
+        // Init
+        showImage(currentIndex);
+        startAutoRotate();
+      </script>
+      
     <script src="homejs.js"></script>
 </body>
 </html>

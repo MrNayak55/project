@@ -207,3 +207,4 @@ function setupFacultyAutoScroll() {
   
   // Initialize on page load
   document.addEventListener('DOMContentLoaded', setupFacultyAutoScroll);
+  
